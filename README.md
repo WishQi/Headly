@@ -9,6 +9,7 @@
 - [设计规范](Product/Design-Spec.md)
 - [运行方式与交付说明](Product/README.md)
 - [验证结果](Product/Verification.md)
+- [代码审查与清理](Product/Code-Review.md)
 
 打开 `Headly.xcodeproj`，选择 Headly scheme 即可运行原生原型。浏览器版本直接打开 HTML，或在工作区运行 `python3 -m http.server 8769 --bind 127.0.0.1` 后访问 <http://localhost:8769/Prototype/>。
 

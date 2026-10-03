@@ -21,4 +21,14 @@ PASS corrupt data original preserved
 PASS corrupt data blocks writes
 PASS cross window conflict rejected and both inputs preserved
 PASS prototype JavaScript runs without DOM errors
-RESULT 23 checks passed
+PASS storage refresh keeps the page blocked behind a confirmation
+PASS demo confirmation cannot overwrite records added by another window
+PASS closed confirmation restores page interaction and accessibility
+PASS external deletion dismisses detail and restores navigation
+PASS external storage clear does not resurrect an edited record
+PASS new save preserves another window records before its storage event arrives
+PASS editing detects conflict before the storage event arrives
+PASS clear confirmation preserves records changed by another window
+PASS delete confirmation preserves a record changed by another window
+PASS storage refresh keeps the editor blocked behind discard confirmation
+RESULT 33 checks passed

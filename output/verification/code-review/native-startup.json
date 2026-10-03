@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-10-03T22:53:59.673026+08:00",
+  "bundle": "com.maoqi.Headly.CodeReviewQA",
+  "device": "E088D293-942A-481B-8927-3D46835C21CC",
+  "launch": "com.maoqi.Headly.CodeReviewQA: 40366",
+  "processStillRunning": true,
+  "schemaVersion": 1,
+  "demoRecordCount": 5,
+  "nativeUIClickValidation": "not completed: native UI control returned stale Simulator menu elements and no screenshot, including after session reset; build and startup do not imply UI interaction passed"
+}

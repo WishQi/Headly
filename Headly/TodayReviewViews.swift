@@ -8,6 +8,7 @@ struct TodayView: View {
     private let calendar = Calendar.current
     private var stats: RecordStatistics { RecordStatistics(records: store.records, interval: calendar.dateInterval(of: .month, for: Date())!) }
     var body: some View {
+        let stats = stats
         VStack(alignment: .leading, spacing: 22) {
             VStack(alignment: .leading, spacing: 8) {
                 Text(Date(), format: .dateTime.year().month(.wide).day().weekday(.wide)).font(.system(.caption)).foregroundStyle(HeadlyTheme.muted)
@@ -112,17 +113,19 @@ struct ReviewView: View {
     private let calendar = Calendar.current
     private var interval: DateInterval { calendar.dateInterval(of: .month, for: month)! }
     private var stats: RecordStatistics { RecordStatistics(records: store.records, interval: interval) }
-    private var visible: [HeadacheRecord] {
+    private func visibleRecords(in stats: RecordStatistics) -> [HeadacheRecord] {
         guard let selectedDay else { return stats.included }
         return stats.included.filter { $0.overlaps(calendar.dateInterval(of: .day, for: selectedDay)!) }
     }
     var body: some View {
+        let stats = stats
+        let visible = visibleRecords(in: stats)
         VStack(alignment: .leading, spacing: 22) {
             VStack(alignment: .leading, spacing: 8) {
                 Text("YOUR PERSONAL PATTERNS").font(.system(.caption2)).tracking(2).foregroundStyle(HeadlyTheme.muted)
                 Text("看见自己的节奏").font(.system(.largeTitle, design: .serif)).foregroundStyle(HeadlyTheme.ink).tracking(-1)
             }.padding(.top, 2)
-            calendarCard
+            calendarCard(records: stats.included)
             HStack(alignment: .top, spacing: 0) {
                 summary(value: "\(stats.recordedDays)", label: "记录日", unit: "天")
                 summary(value: stats.averageIntensity.map { String(format: "%.1f", $0) } ?? "—", label: "平均强度", unit: "/10")
@@ -164,7 +167,7 @@ struct ReviewView: View {
             }
         }
     }
-    private var calendarCard: some View {
+    private func calendarCard(records: [HeadacheRecord]) -> some View {
         VStack(spacing: 16) {
             HStack {
                 Text(month, format: .dateTime.year().month(.wide)).font(.system(.headline)).foregroundStyle(HeadlyTheme.ink)
@@ -181,7 +184,7 @@ struct ReviewView: View {
                     if cell < firstOffset { Color.clear.frame(height: 44) }
                     else {
                         let date = calendar.date(byAdding: .day, value: cell - firstOffset, to: month)!
-                        let dayRecords = store.records.filter { $0.overlaps(calendar.dateInterval(of: .day, for: date)!) }
+                        let dayRecords = records.filter { $0.overlaps(calendar.dateInterval(of: .day, for: date)!) }
                         let isSelected = selectedDay.map { calendar.isDate($0, inSameDayAs: date) } ?? false
                         Button { selectedDay = isSelected ? nil : date } label: {
                             VStack(spacing: 3) {

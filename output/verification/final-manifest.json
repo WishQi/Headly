@@ -1,28 +1,110 @@
 {
-  "timestamp": "2026-10-03T22:27:31.246911+08:00",
+  "timestamp": "2026-10-03T22:57:43.887742+08:00",
   "workspace": "/Users/maoqi/Developer/Headly",
-  "originalVerificationInputSnapshot": "/Users/maoqi/.codex/long-tasks/headly-product-20261003/evidence/inputs-before.json",
-  "verifiedApplicationInputsUnchanged": false,
-  "postVerificationChanges": {
-    "tools/product/render_prd.py": "Explicit image dimensions; final PDF regenerated and visually inspected.",
-    "Headly/Assets.xcassets/AppIcon.appiconset/Contents.json": "New user-requested App icon; resource compilation and simulator build passed.",
-    "Headly/Assets.xcassets/AppIcon.appiconset/HeadlyIcon-v2.png": "ImageGen h mark, normalized to 1024×1024 RGB. Visual inspection at 60 and 29 px passed.",
-    "Headly/Assets.xcassets/AppIcon.appiconset/HeadlyIcon.png": "Original moved intact to Product/Icon/archive/HeadlyIcon-v1.png.",
-    "Product/Icon/": "Icon master, downloadable final PNG, prompt record and original icon archive added.",
-    "README.md, Product/README.md, Product/Verification.md": "Updated icon handoff links and validation record.",
-    "Product/README.md, Product/Verification.md": "Updated Git handoff wording after explicit user authorization; application and test code unchanged.",
-    ".gitattributes, output/verification/*native-build.log": "Declare PDF/PNG binary for Git and normalize trailing log whitespace; raw logs retained in original task evidence."
+  "reviewBaseRevision": "9c3c15350a6e32382629ca2b82b16d377d4ca80f",
+  "deliveryBranch": "codex/headly-code-cleanup",
+  "verifiedInputsUnchangedAfterRelevantChecks": true,
+  "verificationSnapshots": {
+    "model": {
+      "path": "/Users/maoqi/.codex/long-tasks/headly-code-review-20261003/evidence/inputs-before-native-model.json",
+      "files": [
+        "Headly/HeadacheRecord.swift",
+        "Headly/RecordDraft.swift",
+        "tools/product/ModelChecks.swift"
+      ],
+      "inputsUnchangedAfterChecks": true
+    },
+    "browser": {
+      "path": "/Users/maoqi/.codex/long-tasks/headly-code-review-20261003/evidence/inputs-before-browser-final.json",
+      "files": [
+        "Prototype/index.html",
+        "tools/product/browser-checks.cjs"
+      ],
+      "inputsUnchangedAfterChecks": true
+    },
+    "native": {
+      "path": "/Users/maoqi/.codex/long-tasks/headly-code-review-20261003/evidence/inputs-before-build-final.json",
+      "files": [
+        "Headly/Headly.entitlements",
+        "Headly/DesignSystem.swift",
+        "Headly/TodayReviewViews.swift",
+        "Headly/RecordDraft.swift",
+        "Headly/DetailSettingsViews.swift",
+        "Headly/RecordEditor.swift",
+        "Headly/HeadacheRecord.swift",
+        "Headly/HeadlyApp.swift",
+        "Headly/ContentView.swift",
+        "Headly/Info.plist",
+        "Headly/Assets.xcassets/Contents.json",
+        "Headly/Assets.xcassets/AppIcon.appiconset/Contents.json",
+        "Headly/Assets.xcassets/AppIcon.appiconset/HeadlyIcon-v2.png",
+        "Headly/Assets.xcassets/AccentColor.colorset/Contents.json",
+        "Headly.xcodeproj/project.pbxproj",
+        "Headly.xcodeproj/xcuserdata/maoqi.xcuserdatad/xcschemes/xcschememanagement.plist",
+        "Headly.xcodeproj/project.xcworkspace/contents.xcworkspacedata"
+      ],
+      "inputsUnchangedAfterChecks": true
+    },
+    "pythonSyntax": {
+      "path": "/Users/maoqi/.codex/long-tasks/headly-code-review-20261003/evidence/inputs-before-build-final.json",
+      "files": [
+        "tools/product/render_prd.py"
+      ],
+      "inputsUnchangedAfterChecks": true
+    }
   },
   "results": {
-    "swiftModelChecks": 29,
-    "browserDOMChecks": 23,
-    "nativeSimulatorBuild": "passed",
-    "pdfPages": 14,
-    "iconResourceBuild": "passed",
-    "iconFormat": "1024×1024 RGB opaque PNG"
+    "swiftModelAndDraftChecks": 38,
+    "browserDOMChecks": 33,
+    "nativeSimulatorDebugBuild": "passed",
+    "nativeInstallAndStartup": "passed",
+    "browserObservedFlows": [
+      "new record",
+      "reload persistence",
+      "detail to edit",
+      "cancel discard",
+      "save edit",
+      "finish",
+      "review"
+    ],
+    "pythonSyntax": "passed",
+    "nativeUIClickValidation": "blocked by native UI control failure",
+    "gitDiffWhitespaceCheck": "passed",
+    "documentationLocalLinks": 31
   },
-  "preservedUserChange": "docs/PRD.md remains deleted",
+  "historicalResults": {
+    "pdfPages": 14,
+    "pdfVisualInspection": "completed during original PRD delivery; PDF unchanged in this review",
+    "iconFormat": "1024×1024 RGB opaque PNG; unchanged in this review",
+    "nativeScreenshots": "prior design delivery; do not verify current sheet changes",
+    "originalInputSnapshot": "/Users/maoqi/.codex/long-tasks/headly-product-20261003/evidence/inputs-before.json"
+  },
+  "removedSource": [
+    "Headly/Item.swift"
+  ],
+  "preservedUserChange": "docs/PRD.md remains deleted and unstaged, outside this cleanup",
+  "limits": [
+    "Native detail-to-edit, save and discard UI clicks pending because native UI tool returns stale menu elements and no screenshot",
+    "localStorage remains nontransactional across simultaneous windows",
+    "iOS 17 real device, full VoiceOver and maximum Dynamic Type checks pending"
+  ],
   "files": {
+    ".gitattributes": {
+      "sha256": "9618185d97a7b73972851bc179ac276080c298f79adbc1847951e647f4254c27",
+      "bytes": 26
+    },
+    "Headly.xcodeproj/project.pbxproj": {
+      "sha256": "5eb0067589db805807dde8a9eea41a11fefb6f75db5308fd7b2927a6e90eba83",
+      "bytes": 12557
+    },
+    "Headly.xcodeproj/project.xcworkspace/contents.xcworkspacedata": {
+      "sha256": "7f3b00b5c3fdb45242d7b87e1e5c4e25d1fa8129a16c94295ecc4e8ea2235c5f",
+      "bytes": 135
+    },
+    "Headly.xcodeproj/xcuserdata/maoqi.xcuserdatad/xcschemes/xcschememanagement.plist": {
+      "sha256": "8e63872b3eb534afba35f3a4a2dc52ac7ccf0a17a018837ea486648fad793c70",
+      "bytes": 341
+    },
     "Headly/Assets.xcassets/AccentColor.colorset/Contents.json": {
       "sha256": "9af65086fa30b49252fae1a1225731691de794f7775af74d71befeb507d12b7c",
       "bytes": 123
@@ -40,8 +122,8 @@
       "bytes": 63
     },
     "Headly/ContentView.swift": {
-      "sha256": "f6ab27b3fffa0e80ea65ed627492c31bf17d58c87095268c7fea33aecd54e9b0",
-      "bytes": 5848
+      "sha256": "02494b4a9d485cc687c1c5e79d137363158093768fcccf358273bfe4a2ddf3f8",
+      "bytes": 6405
     },
     "Headly/DesignSystem.swift": {
       "sha256": "8cc01892b8985350ca1314c1b278e5dd1be677a18f6964187ccb470f8c9f8c08",
@@ -52,8 +134,8 @@
       "bytes": 9230
     },
     "Headly/HeadacheRecord.swift": {
-      "sha256": "fa139134babb60fb902bf133bfff34bdb4ac069ca28fd79f93b15db7743397f2",
-      "bytes": 10512
+      "sha256": "b9b85f2b593d8e240f06ceb9aeafd45fb460b1f1bda9105253198084133d1b8b",
+      "bytes": 10747
     },
     "Headly/Headly.entitlements": {
       "sha256": "d9b06c202956033b01e62b21c727eea89b6a4fd456ef71d420c39f460426b9f3",
@@ -67,21 +149,21 @@
       "sha256": "d433516d78e51a29cce318d6a07db85ed8125ca8f461061ba8c11331d7afd4ee",
       "bytes": 252
     },
-    "Headly/Item.swift": {
-      "sha256": "205f766d1627824c9c55fda65d25d7cd15a54269b83398ec7c1534b4b3e80efd",
-      "bytes": 233
+    "Headly/RecordDraft.swift": {
+      "sha256": "7aa256437a0ce5d89c33c3aac4fc2329b83990d162e4aebd6c6483cfc4c3fdee",
+      "bytes": 1108
     },
     "Headly/RecordEditor.swift": {
-      "sha256": "e85e106b40bfac9fc285e7ed805f357632e1102e14d8fd3ebdf85d1001c71850",
-      "bytes": 10871
+      "sha256": "27f4ebbf6403f96a774162aa08606901792c291d4b0d6d6049e79e0ddd02ce48",
+      "bytes": 9222
     },
     "Headly/TodayReviewViews.swift": {
-      "sha256": "87f77a1156c89574f89bebc2c2da5155bf5f38eef1754140a350b81f6678bba1",
-      "bytes": 14476
+      "sha256": "4c9be3516c354a39bd0f241c9182ba58b9bac75f989eaff9d728bed5a9f009b2",
+      "bytes": 14663
     },
-    "Headly.xcodeproj/project.pbxproj": {
-      "sha256": "5eb0067589db805807dde8a9eea41a11fefb6f75db5308fd7b2927a6e90eba83",
-      "bytes": 12557
+    "Product/Code-Review.md": {
+      "sha256": "031c8f0b6e3f4571bbd67dca0b4de08c47005c39dc79afb56400b962f5656c40",
+      "bytes": 5200
     },
     "Product/Design-Spec.md": {
       "sha256": "3a7ec2e137569b1a99b4002940404d0d4cdb40431ce5f6c3eb6a0500248adf0f",
@@ -120,12 +202,12 @@
       "bytes": 388885
     },
     "Product/README.md": {
-      "sha256": "ea92fbe190160b7eb8af38bc769f5e97b3476896ea7b3d1d69a2425a0ca91031",
-      "bytes": 3904
+      "sha256": "420e8b178b92512b8f6b7ef6169c97b98b47928430999fef025fad7a3bd8bf7d",
+      "bytes": 4119
     },
     "Product/Verification.md": {
-      "sha256": "95564e3b0e7e373abe61897b523616ab180f0e2186dc26d96aa09b40b65a9608",
-      "bytes": 5172
+      "sha256": "717195764d53ded236905f3e8434ad9d0d343be3d4b3e9e2d8c834e61c8e88ab",
+      "bytes": 6451
     },
     "Product/screens/ios-record.png": {
       "sha256": "1fc24b27799c98b8ccc240d1de77f4778b77239899df76ddc43d1ef51145caa0",
@@ -152,20 +234,28 @@
       "bytes": 30282
     },
     "Prototype/index.html": {
-      "sha256": "0850b450f4e3dc12eb8ef1041686b9a71f158da80db559baf33752dbddc37ab2",
-      "bytes": 53056
+      "sha256": "3fc245312a2de0717207a4a46cea34501ac4af8372882a39b144aadfdca76ac2",
+      "bytes": 54076
     },
     "README.md": {
-      "sha256": "bf1d7c27322e4e5e2a58aa0d700a2609e1589f39dd2470e0ff33605dc48b4647",
-      "bytes": 914
+      "sha256": "a0858e24a9a8e0c8d4c4537aa8891639819c2140f72fa3776f8b7e29aaf15db0",
+      "bytes": 964
     },
     "output/pdf/Headly-PRD.pdf": {
       "sha256": "a41910707f54e34e7d8df689ed0a308a8b02303a7b3f4da3afd9f98b947e02ef",
       "bytes": 485280
     },
     "output/verification/browser-checks.log": {
-      "sha256": "71ba19c01af947c0af1e322702936910af509825afc0aa9d5bce701dd7cbc296",
-      "bytes": 962
+      "sha256": "b95058f49bdf1bad2bc87bbfa5494b603b7b8ce1ec1d31d7ee86a9683ba809aa",
+      "bytes": 1652
+    },
+    "output/verification/code-review/browser-review.png": {
+      "sha256": "d06e5b356a5246afddf65339d016b95475f6135dd127a9c20157d4df1c257902",
+      "bytes": 64435
+    },
+    "output/verification/code-review/native-startup.json": {
+      "sha256": "b277bde2e7c6b1770d50a0c195a2c0a2c69ce94370c671b0d5595a033de68d85",
+      "bytes": 487
     },
     "output/verification/icon/native-build.log": {
       "sha256": "f5b162b25d48ee193744b707f926b9242e82dfbd4c7e7ce68efb056d00829a93",
@@ -180,35 +270,28 @@
       "bytes": 4129
     },
     "output/verification/model-checks.log": {
-      "sha256": "cd703e7055c5f0d932955478be7f3506ba401fd1833659aab398358a24ab6370",
-      "bytes": 1216
+      "sha256": "3dd580bbab557f2b1641000004e68640b9105bbf859a35e1f0a9b7d528aafa15",
+      "bytes": 1685
     },
     "output/verification/native-build.log": {
-      "sha256": "99d148a349f880f5ba4880d3400e8f71a7aa2325649316e96574430cd2a61488",
-      "bytes": 5578
+      "sha256": "a339d450de9c60908c0d89e60ec2d42f0fbfb965bf6c2938ed58127379d26a1b",
+      "bytes": 34143
     },
     "tools/product/ModelChecks.swift": {
-      "sha256": "3e00058588215e5ae00030a160764e05aa05ca9d345a49a2ce553a595144cddf",
-      "bytes": 7350
+      "sha256": "a65d901083203291c81c68bac2a90e2fd67fd863ce21b6a3f8f7b1d4538e73f1",
+      "bytes": 9278
     },
     "tools/product/browser-checks.cjs": {
-      "sha256": "863e61d6bb5666b01046b3a73099892d3738f5ea5dff5c43f3100c4676ee5b90",
-      "bytes": 8417
+      "sha256": "9f6cd58d38eb82b834c8f4970b85eec939f8cd1dba9d52cdce3b7e27d8c2d273",
+      "bytes": 11995
     },
     "tools/product/render_prd.py": {
-      "sha256": "e3d0a6ffeb9fdae69bcd107df2e6ed61d85219953c486ec6052fe4e5af9f019a",
-      "bytes": 8455
-    },
-    ".gitattributes": {
-      "sha256": "9618185d97a7b73972851bc179ac276080c298f79adbc1847951e647f4254c27",
-      "bytes": 26
+      "sha256": "c6b3e4431dd1b2c3ac7ebcb5190403a53901d1b250f85eabc6f980fb71d44229",
+      "bytes": 8415
     }
   },
-  "limits": [
-    "iOS 17 real device testing pending",
-    "Full VoiceOver and maximum Dynamic Type pending",
-    "Not published or release certified"
-  ],
-  "verifiedApplicationLogicUnchanged": true,
-  "deliveryBranch": "codex/headly-product-prototype"
+  "artifactSnapshotUpdatedAt": "2026-10-04T00:11:14.292608+08:00",
+  "snapshotKind": "Verified working tree before Git commit; submission status is recorded by Git and the pull request",
+  "uncommittedChangesAtVerification": true,
+  "remotePushPerformedAtVerification": false
 }

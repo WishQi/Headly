@@ -14,6 +14,7 @@
 | App 图标 | Product/Icon/Headly-AppIcon.png 与 Product/Icon/README.md | 1024 × 1024 图标、设计说明及生成提示词 |
 | 界面预览 | Product/Preview.png 与 Product/screens/ | 三页概览及实际浏览器截图 |
 | 验证说明 | Product/Verification.md | 检查范围、结果与发布前边界 |
+| 代码审查 | Product/Code-Review.md | 清理内容、问题修复、回归检查与待复测项 |
 
 ## 打开浏览器原型
 
@@ -40,7 +41,7 @@ QA 启动参数仅用于可复现的界面检查：`--demo` 在空数据库中�
 本地模型检查直接编译真实数据模型，不依赖浏览器或 Xcode 测试 target：
 
 ```sh
-xcrun swiftc Headly/HeadacheRecord.swift tools/product/ModelChecks.swift -o /tmp/headly-model-checks
+xcrun swiftc Headly/HeadacheRecord.swift Headly/RecordDraft.swift tools/product/ModelChecks.swift -o /tmp/headly-model-checks
 /tmp/headly-model-checks
 ```
 
@@ -57,4 +58,4 @@ PRD PDF 的生成脚本为 tools/product/render_prd.py，需要 Python 的 repor
 
 这是用于评审与实现参考的产品原型。尚未进行 iOS 17 实机、最大动态字号和完整 VoiceOver 测试；未实现数据导入、自动恢复、Face ID 和暗色主题。原型满足核心记录与回顾流程，正式发布前仍需完成 PRD 中的发布条件。
 
-新文档位于 Product/，本次 Git 提交包含产品原型、图标与交付资料。开始前已有的 docs/PRD.md 删除改动保留在本地工作区。尚未发布网站或 App。
+新文档位于 Product/，产品原型、图标与交付资料已合入 main。本次代码清理使用独立分支，内容与待复测项见 [代码审查](Code-Review.md)。开始前已有的 docs/PRD.md 删除改动保留在本地工作区。尚未发布网站或 App。

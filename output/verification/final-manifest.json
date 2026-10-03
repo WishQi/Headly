@@ -1,0 +1,214 @@
+{
+  "timestamp": "2026-10-03T22:27:31.246911+08:00",
+  "workspace": "/Users/maoqi/Developer/Headly",
+  "originalVerificationInputSnapshot": "/Users/maoqi/.codex/long-tasks/headly-product-20261003/evidence/inputs-before.json",
+  "verifiedApplicationInputsUnchanged": false,
+  "postVerificationChanges": {
+    "tools/product/render_prd.py": "Explicit image dimensions; final PDF regenerated and visually inspected.",
+    "Headly/Assets.xcassets/AppIcon.appiconset/Contents.json": "New user-requested App icon; resource compilation and simulator build passed.",
+    "Headly/Assets.xcassets/AppIcon.appiconset/HeadlyIcon-v2.png": "ImageGen h mark, normalized to 1024×1024 RGB. Visual inspection at 60 and 29 px passed.",
+    "Headly/Assets.xcassets/AppIcon.appiconset/HeadlyIcon.png": "Original moved intact to Product/Icon/archive/HeadlyIcon-v1.png.",
+    "Product/Icon/": "Icon master, downloadable final PNG, prompt record and original icon archive added.",
+    "README.md, Product/README.md, Product/Verification.md": "Updated icon handoff links and validation record.",
+    "Product/README.md, Product/Verification.md": "Updated Git handoff wording after explicit user authorization; application and test code unchanged.",
+    ".gitattributes, output/verification/*native-build.log": "Declare PDF/PNG binary for Git and normalize trailing log whitespace; raw logs retained in original task evidence."
+  },
+  "results": {
+    "swiftModelChecks": 29,
+    "browserDOMChecks": 23,
+    "nativeSimulatorBuild": "passed",
+    "pdfPages": 14,
+    "iconResourceBuild": "passed",
+    "iconFormat": "1024×1024 RGB opaque PNG"
+  },
+  "preservedUserChange": "docs/PRD.md remains deleted",
+  "files": {
+    "Headly/Assets.xcassets/AccentColor.colorset/Contents.json": {
+      "sha256": "9af65086fa30b49252fae1a1225731691de794f7775af74d71befeb507d12b7c",
+      "bytes": 123
+    },
+    "Headly/Assets.xcassets/AppIcon.appiconset/Contents.json": {
+      "sha256": "82c534b32d967c981cb39a3ac6c0695781f7cb6f9df785a972f4ea2364adc674",
+      "bytes": 209
+    },
+    "Headly/Assets.xcassets/AppIcon.appiconset/HeadlyIcon-v2.png": {
+      "sha256": "98dab12f1db84dfe230a247f8550dcad08c3576b25ee736d13925eff117ccae5",
+      "bytes": 809942
+    },
+    "Headly/Assets.xcassets/Contents.json": {
+      "sha256": "0fd49ba3c3585c709678e0046a821c3c60685ec7063720d30d3a3448be3a208b",
+      "bytes": 63
+    },
+    "Headly/ContentView.swift": {
+      "sha256": "f6ab27b3fffa0e80ea65ed627492c31bf17d58c87095268c7fea33aecd54e9b0",
+      "bytes": 5848
+    },
+    "Headly/DesignSystem.swift": {
+      "sha256": "8cc01892b8985350ca1314c1b278e5dd1be677a18f6964187ccb470f8c9f8c08",
+      "bytes": 5468
+    },
+    "Headly/DetailSettingsViews.swift": {
+      "sha256": "580492ef15b46e9236b50c9b1ebb54a29d36c38613be278cec67bf893a7883ef",
+      "bytes": 9230
+    },
+    "Headly/HeadacheRecord.swift": {
+      "sha256": "fa139134babb60fb902bf133bfff34bdb4ac069ca28fd79f93b15db7743397f2",
+      "bytes": 10512
+    },
+    "Headly/Headly.entitlements": {
+      "sha256": "d9b06c202956033b01e62b21c727eea89b6a4fd456ef71d420c39f460426b9f3",
+      "bytes": 188
+    },
+    "Headly/HeadlyApp.swift": {
+      "sha256": "93416d1cc37bcadb9d59b1d0d6d69ffb1c9fae3566d2d525fca85583ca93bd97",
+      "bytes": 389
+    },
+    "Headly/Info.plist": {
+      "sha256": "d433516d78e51a29cce318d6a07db85ed8125ca8f461061ba8c11331d7afd4ee",
+      "bytes": 252
+    },
+    "Headly/Item.swift": {
+      "sha256": "205f766d1627824c9c55fda65d25d7cd15a54269b83398ec7c1534b4b3e80efd",
+      "bytes": 233
+    },
+    "Headly/RecordEditor.swift": {
+      "sha256": "e85e106b40bfac9fc285e7ed805f357632e1102e14d8fd3ebdf85d1001c71850",
+      "bytes": 10871
+    },
+    "Headly/TodayReviewViews.swift": {
+      "sha256": "87f77a1156c89574f89bebc2c2da5155bf5f38eef1754140a350b81f6678bba1",
+      "bytes": 14476
+    },
+    "Headly.xcodeproj/project.pbxproj": {
+      "sha256": "5eb0067589db805807dde8a9eea41a11fefb6f75db5308fd7b2927a6e90eba83",
+      "bytes": 12557
+    },
+    "Product/Design-Spec.md": {
+      "sha256": "3a7ec2e137569b1a99b4002940404d0d4cdb40431ce5f6c3eb6a0500248adf0f",
+      "bytes": 3394
+    },
+    "Product/Desktop.png": {
+      "sha256": "67fe396d7c2990d491f8c57a0eb215294f4116bfc4dcb48798a8ecb28d1370e6",
+      "bytes": 69685
+    },
+    "Product/Icon/Headly-AppIcon.png": {
+      "sha256": "98dab12f1db84dfe230a247f8550dcad08c3576b25ee736d13925eff117ccae5",
+      "bytes": 809942
+    },
+    "Product/Icon/Headly-Generated-Master.png": {
+      "sha256": "4885c005193122320baeffa3e73be1e77418895e246d7396eed1d5b1af12e487",
+      "bytes": 924081
+    },
+    "Product/Icon/README.md": {
+      "sha256": "669872e0c8a27aa06cf7c9778168c2e4884dd6c0608bc89e8fb4fbf251f2c822",
+      "bytes": 3903
+    },
+    "Product/Icon/archive/HeadlyIcon-v1.png": {
+      "sha256": "4d9396bd0ed6992566587d61c3a1af6140d76ac613a9ed9419828f85d6144c1c",
+      "bytes": 32204
+    },
+    "Product/Icon/archive/PRD-delivery-manifest-before-icon.json": {
+      "sha256": "ce33e930b4b5e5e779010b178f6b35bb80024f19adea6d4969976cd45062abd9",
+      "bytes": 6163
+    },
+    "Product/PRD.md": {
+      "sha256": "3765761d44c437611b30acccc15235a40d61be29ffc73fe0dcb7585eef63f381",
+      "bytes": 25977
+    },
+    "Product/Preview.png": {
+      "sha256": "bd664f09b90645abece973306d93d7ef75ce9eddc68d2d6150513a0b0b8a4c48",
+      "bytes": 388885
+    },
+    "Product/README.md": {
+      "sha256": "ea92fbe190160b7eb8af38bc769f5e97b3476896ea7b3d1d69a2425a0ca91031",
+      "bytes": 3904
+    },
+    "Product/Verification.md": {
+      "sha256": "95564e3b0e7e373abe61897b523616ab180f0e2186dc26d96aa09b40b65a9608",
+      "bytes": 5172
+    },
+    "Product/screens/ios-record.png": {
+      "sha256": "1fc24b27799c98b8ccc240d1de77f4778b77239899df76ddc43d1ef51145caa0",
+      "bytes": 246511
+    },
+    "Product/screens/ios-review.png": {
+      "sha256": "cefb239e44271c5b5eb4f48f329dda3f9b2675581f0c75f9cf100af1ff2bc447",
+      "bytes": 235067
+    },
+    "Product/screens/ios-today.png": {
+      "sha256": "b295e378a1ac3df767de5cd8f5688b359f9ed130b643b0c066dc88292b278062",
+      "bytes": 314619
+    },
+    "Product/screens/record.png": {
+      "sha256": "6837b712ddc00a177f7680c02871c48d6c1d18adb737f9923a33039f9db6299a",
+      "bytes": 26525
+    },
+    "Product/screens/review.png": {
+      "sha256": "120fd529337a84106aa3ca942c3d71edd4827d6dddb9a9a98adf032d811bcde3",
+      "bytes": 23144
+    },
+    "Product/screens/today.png": {
+      "sha256": "d25b7db40de1aec9bc168b007a83b6df8915407c3439c170ccf948139811b03f",
+      "bytes": 30282
+    },
+    "Prototype/index.html": {
+      "sha256": "0850b450f4e3dc12eb8ef1041686b9a71f158da80db559baf33752dbddc37ab2",
+      "bytes": 53056
+    },
+    "README.md": {
+      "sha256": "bf1d7c27322e4e5e2a58aa0d700a2609e1589f39dd2470e0ff33605dc48b4647",
+      "bytes": 914
+    },
+    "output/pdf/Headly-PRD.pdf": {
+      "sha256": "a41910707f54e34e7d8df689ed0a308a8b02303a7b3f4da3afd9f98b947e02ef",
+      "bytes": 485280
+    },
+    "output/verification/browser-checks.log": {
+      "sha256": "71ba19c01af947c0af1e322702936910af509825afc0aa9d5bce701dd7cbc296",
+      "bytes": 962
+    },
+    "output/verification/icon/native-build.log": {
+      "sha256": "f5b162b25d48ee193744b707f926b9242e82dfbd4c7e7ce68efb056d00829a93",
+      "bytes": 50131
+    },
+    "output/verification/icon/size-29.png": {
+      "sha256": "f8c8efac314d9ca7e036c77608581c7cef39c37589e5f03fbbdb0ef95225eb4c",
+      "bytes": 1777
+    },
+    "output/verification/icon/size-60.png": {
+      "sha256": "8f74793654670cc2ff19b6f0451555aaf826a4563d334ccb2419dbaa3f3aeb32",
+      "bytes": 4129
+    },
+    "output/verification/model-checks.log": {
+      "sha256": "cd703e7055c5f0d932955478be7f3506ba401fd1833659aab398358a24ab6370",
+      "bytes": 1216
+    },
+    "output/verification/native-build.log": {
+      "sha256": "99d148a349f880f5ba4880d3400e8f71a7aa2325649316e96574430cd2a61488",
+      "bytes": 5578
+    },
+    "tools/product/ModelChecks.swift": {
+      "sha256": "3e00058588215e5ae00030a160764e05aa05ca9d345a49a2ce553a595144cddf",
+      "bytes": 7350
+    },
+    "tools/product/browser-checks.cjs": {
+      "sha256": "863e61d6bb5666b01046b3a73099892d3738f5ea5dff5c43f3100c4676ee5b90",
+      "bytes": 8417
+    },
+    "tools/product/render_prd.py": {
+      "sha256": "e3d0a6ffeb9fdae69bcd107df2e6ed61d85219953c486ec6052fe4e5af9f019a",
+      "bytes": 8455
+    },
+    ".gitattributes": {
+      "sha256": "9618185d97a7b73972851bc179ac276080c298f79adbc1847951e647f4254c27",
+      "bytes": 26
+    }
+  },
+  "limits": [
+    "iOS 17 real device testing pending",
+    "Full VoiceOver and maximum Dynamic Type pending",
+    "Not published or release certified"
+  ],
+  "verifiedApplicationLogicUnchanged": true,
+  "deliveryBranch": "codex/headly-product-prototype"
+}

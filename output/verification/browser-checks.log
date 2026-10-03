@@ -1,0 +1,24 @@
+PASS first launch empty state
+PASS intensity not preselected and save disabled
+PASS quick save ongoing record
+PASS reload retains same ongoing record
+PASS second ongoing rejected without losing draft
+PASS cancel discard retains draft
+PASS confirmed discard closes unchanged draft
+PASS edit preserves identity creation time and text
+PASS finish updates same record
+PASS review calendar statistics and records
+PASS CSV download assembled
+PASS delete cancellation preserves record
+PASS confirmed delete persists and updates review
+PASS explicit demo labeled and loaded
+PASS demo cannot overwrite existing records
+PASS clear all returns persisted empty state
+PASS future start rejected
+PASS invalid end rejected
+PASS quota error retains draft and prior storage
+PASS corrupt data original preserved
+PASS corrupt data blocks writes
+PASS cross window conflict rejected and both inputs preserved
+PASS prototype JavaScript runs without DOM errors
+RESULT 23 checks passed

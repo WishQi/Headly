@@ -109,4 +109,61 @@ e.click('[data-action="save"]');
 assert(e.q('[role="alert"]').textContent.includes('其他窗口') && e.data()[0].notes === changed.notes && e.q('[name="notes"]').value.includes('当前窗口'), 'cross window conflict rejected and both inputs preserved');
 assert(e.errors.length === 0, 'prototype JavaScript runs without DOM errors');
 e.dom.window.close();
+
+function externalUpdate(e, next, key = KEY) {
+  if (next === null) e.dom.window.localStorage.clear();
+  else e.dom.window.localStorage.setItem(KEY, next);
+  e.dom.window.dispatchEvent(new e.dom.window.StorageEvent('storage', { key, newValue: next }));
+}
+
+e = environment(); e.click('[data-action="demo"]');
+externalUpdate(e, JSON.stringify({ schemaVersion: 1, records: seed }));
+assert(e.q('#app').inert, 'storage refresh keeps the page blocked behind a confirmation');
+e.click('[data-action="confirm-yes"]');
+assert(e.data().length === 1 && e.data()[0].id === seed[0].id && !e.data()[0].isDemo, 'demo confirmation cannot overwrite records added by another window');
+assert(!e.q('#app').inert && e.q('#app').getAttribute('aria-hidden') === 'false', 'closed confirmation restores page interaction and accessibility');
+e.dom.window.close();
+
+e = environment(JSON.stringify({ schemaVersion: 1, records: seed }));
+e.click('[data-action="detail"]');
+externalUpdate(e, JSON.stringify({ schemaVersion: 1, records: [] }));
+assert(!e.q('.modal') && !e.q('#app').inert, 'external deletion dismisses detail and restores navigation');
+e.dom.window.close();
+
+e = environment(JSON.stringify({ schemaVersion: 1, records: seed }));
+e.click('[data-action="detail"]'); e.click('[data-action="edit"]');
+externalUpdate(e, null, null); e.click('[data-action="save"]');
+assert(e.data().length === 0 && e.q('[role="alert"]').textContent.includes('其他窗口'), 'external storage clear does not resurrect an edited record');
+e.dom.window.close();
+
+e = environment(); e.click('[data-action="new"]'); e.click('[data-action="intensity"][data-value="3"]');
+e.dom.window.localStorage.setItem(KEY, JSON.stringify({ schemaVersion: 1, records: seed }));
+e.click('[data-action="save"]');
+assert(e.data().length === 2 && e.data().some(r => r.id === seed[0].id), 'new save preserves another window records before its storage event arrives');
+e.dom.window.close();
+
+e = environment(JSON.stringify({ schemaVersion: 1, records: seed }));
+e.click('[data-action="detail"]'); e.click('[data-action="edit"]');
+e.dom.window.localStorage.setItem(KEY, next); e.click('[data-action="save"]');
+assert(e.data()[0].notes === changed.notes && e.q('[role="alert"]').textContent.includes('其他窗口'), 'editing detects conflict before the storage event arrives');
+e.dom.window.close();
+
+e = environment(JSON.stringify({ schemaVersion: 1, records: seed }));
+e.click('[data-action="settings"]'); e.click('[data-action="clear"]');
+e.dom.window.localStorage.setItem(KEY, next); e.click('[data-action="confirm-yes"]');
+assert(e.data().length === 1 && e.q('[role="alert"]').textContent.includes('重新确认'), 'clear confirmation preserves records changed by another window');
+e.dom.window.close();
+
+e = environment(JSON.stringify({ schemaVersion: 1, records: seed }));
+e.click('[data-action="detail"]'); e.click('[data-action="delete"]');
+e.dom.window.localStorage.setItem(KEY, next); e.click('[data-action="confirm-yes"]');
+assert(e.data().length === 1 && e.q('[role="alert"]').textContent.includes('其他窗口'), 'delete confirmation preserves a record changed by another window');
+e.dom.window.close();
+
+e = environment(JSON.stringify({ schemaVersion: 1, records: seed }));
+e.click('[data-action="detail"]'); e.click('[data-action="edit"]');
+e.click('[data-action="intensity"][data-value="2"]'); e.click('[data-action="close"]');
+externalUpdate(e, next);
+assert(e.q('.confirm-box') && e.q('.modal').inert && e.q('#app').inert, 'storage refresh keeps the editor blocked behind discard confirmation');
+e.dom.window.close();
 console.log(`RESULT ${passed} checks passed`);

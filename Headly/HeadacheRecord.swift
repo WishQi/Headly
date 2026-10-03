@@ -63,11 +63,17 @@ extension HeadacheRecord {
 }
 
 struct RecordStatistics {
-    var records: [HeadacheRecord]
-    var interval: DateInterval
-    var calendar: Calendar = .current
-    var now = Date()
-    var included: [HeadacheRecord] { records.filter { $0.overlaps(interval, now: now) } }
+    let included: [HeadacheRecord]
+    let interval: DateInterval
+    let calendar: Calendar
+    let now: Date
+
+    init(records: [HeadacheRecord], interval: DateInterval, calendar: Calendar = .current, now: Date = Date()) {
+        included = records.filter { $0.overlaps(interval, now: now) }
+        self.interval = interval
+        self.calendar = calendar
+        self.now = now
+    }
     var averageIntensity: Double? { included.isEmpty ? nil : Double(included.map(\.intensity).reduce(0, +)) / Double(included.count) }
     var averageDuration: TimeInterval? {
         let completed = included.filter { !$0.isOngoing }
@@ -146,7 +152,8 @@ final class HeadacheStore {
         let base = calendar.startOfDay(for: now)
         let days = [-1, -4, -7, -11, -17], scores = [4, 6, 3, 5, 2], positions = ["左侧", "额头", "右侧", "双侧", "后脑"]
         let demo = days.enumerated().map { index, day in
-            let start = calendar.date(byAdding: .day, value: day, to: base)!.addingTimeInterval(14 * 3600)
+            let date = calendar.date(byAdding: .day, value: day, to: base)!
+            let start = calendar.date(bySettingHour: 14, minute: 0, second: 0, of: date)!
             return HeadacheRecord(startedAt: start, endedAt: start.addingTimeInterval(Double([90, 150, 45, 120, 60][index]) * 60), intensity: scores[index], location: positions[index], symptoms: index == 1 ? ["畏光"] : [], factors: index % 2 == 0 ? ["睡眠不足"] : ["压力", "久看屏幕"], relief: ["休息"], notes: index == 0 ? "午后工作时开始，休息后缓解。" : "", isDemo: true)
         }
         try persist(demo)

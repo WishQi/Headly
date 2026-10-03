@@ -27,4 +27,13 @@ PASS corrupt original bytes preserved
 PASS unknown schema protected
 PASS filesystem write failure surfaced
 PASS write failure does not change memory
-RESULT 29 checks passed
+PASS new draft starts clean without a preselected intensity
+PASS hidden end time does not dirty an ongoing draft
+PASS completed state dirties the draft
+PASS restoring the original state clears draft changes
+PASS editing initializes every field and identity from the original
+PASS editing detects changes without changing identity
+PASS restoring edited text returns to a clean draft
+PASS DST backfill uses local noon and 13:00
+PASS demo times remain at 14:00 across DST
+RESULT 38 checks passed

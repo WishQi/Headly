@@ -91,6 +91,29 @@ struct ModelChecks {
         let unavailable = HeadacheStore(fileURL: URL(fileURLWithPath: "/dev/null/headly-records.json"))
         mustThrow("filesystem write failure surfaced") { try unavailable.save(second, now: now) }
         check(unavailable.records.isEmpty, "write failure does not change memory")
+        var draft = RecordDraft(now: now, calendar: calendar)
+        check(!draft.hasChanges && draft.record.intensity == 0 && draft.value.isOngoing, "new draft starts clean without a preselected intensity")
+        draft.end = now.addingTimeInterval(-60)
+        check(!draft.hasChanges, "hidden end time does not dirty an ongoing draft")
+        draft.ongoing = false
+        check(draft.hasChanges, "completed state dirties the draft")
+        draft.ongoing = true
+        check(!draft.hasChanges, "restoring the original state clears draft changes")
+        var editing = RecordDraft(existing: first, now: now, calendar: calendar)
+        check(!editing.hasChanges && editing.value == first && editing.isEditing, "editing initializes every field and identity from the original")
+        editing.record.notes = "修改后的备注"
+        check(editing.hasChanges && editing.value.id == first.id && editing.value.createdAt == first.createdAt, "editing detects changes without changing identity")
+        editing.record.notes = first.notes
+        check(!editing.hasChanges, "restoring edited text returns to a clean draft")
+        var ny = Calendar(identifier: .gregorian)
+        ny.timeZone = TimeZone(identifier: "America/New_York")!
+        let dstDay = date("2026-03-08T00:00:00-05:00")
+        let nextDay = date("2026-03-09T18:00:00-04:00")
+        let backfill = RecordDraft(initialDate: dstDay, now: nextDay, calendar: ny)
+        check(ny.component(.hour, from: backfill.value.startedAt) == 12 && ny.component(.hour, from: backfill.value.endedAt!) == 13 && !backfill.hasChanges, "DST backfill uses local noon and 13:00")
+        let demoStore = HeadacheStore(fileURL: directory.appendingPathComponent("dst-demo.json"))
+        try demoStore.addDemo(now: nextDay, calendar: ny)
+        check(demoStore.records.allSatisfy { ny.component(.hour, from: $0.startedAt) == 14 }, "demo times remain at 14:00 across DST")
         print("RESULT \(passed) checks passed")
     }
 }

@@ -1,0 +1,30 @@
+PASS first launch is empty
+PASS save and reload retains ongoing identity
+PASS second ongoing rejected
+PASS invalid save leaves records unchanged
+PASS completed overlapping backfill allowed
+PASS finish updates same record with exact duration
+PASS editing retains identity creation time and multiline text
+PASS CSV UTF8 BOM and formula prefix neutralization
+PASS CSV quotes and Chinese text retained
+PASS zero intensity rejected
+PASS future start rejected
+PASS zero or negative duration rejected
+PASS future end rejected
+PASS notes length validated
+PASS cross month overlap midnight exclusion and day deduplication
+PASS unweighted intensity and full completed duration
+PASS factors deduplicated within a record
+PASS ongoing excluded from average duration includes covered dates
+PASS empty samples use unknown values
+PASS delete persists across reload
+PASS clear persists empty state
+PASS demo explicit and labeled
+PASS demo cannot overwrite or duplicate existing records
+PASS corrupt file enters protected state
+PASS corrupt store refuses write
+PASS corrupt original bytes preserved
+PASS unknown schema protected
+PASS filesystem write failure surfaced
+PASS write failure does not change memory
+RESULT 29 checks passed
